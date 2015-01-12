@@ -1,85 +1,15 @@
-<h1>To Do</h1>
+    <div class="row">
+      <div class="col-md-4"><h1 class"text-center">To Do</h1>
+      <%= render @to_do %>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>State</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+      <div class="col-md-4"><h1 class"text-center">Doing</h1>
+      <%= render @doing %>
+      </div>
 
-  <tbody>
-    <% @to_do.each do |task| %>
-      <tr>
-        <td><%= task.content %></td>
-        <td><%= task.state %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Mark as Doing', change_task_path(task ,state: "doing"), method: :put %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+      <div class="col-md-4"><h1 class"text-center">Done</h1>
+      <%= render @done %>
+      </div>
+    </div>
 <br>
-
-
-<h1>Doing</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>State</th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @doing.each do |task| %>
-      <tr>
-        <td><%= task.content %></td>
-        <td><%= task.state %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Mark as To Do', change_task_path(task, state: "to_do"), method: :put %></td>
-        <td><%= link_to 'Mark as Done', change_task_path(task, state: "done"), method: :put %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
-<h1>Done</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>State</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @done.each do |task| %>
-      <tr>
-        <td><%= task.content %></td>
-        <td><%= task.state %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to "Mark as Doing", change_task_path(task, state: "doing"), method: :put %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <%= link_to 'New Task', new_task_path %>
